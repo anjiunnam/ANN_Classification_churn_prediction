@@ -1,0 +1,93 @@
+Project should be started with creating a virtual environment for this specific project and activate this venv
+conda create -p venv python==3.13 -y # ikkada python version anedhi always go with the latest version
+conda activate venv/ 
+
+Now create a file requirements.txt where we specifiy all the libraries required for this Project
+pip install -r requirements.txt
+
+Now just created  a ipynb file and did some of the feature engineering techniques like
+LabelEncoding it helps us to make categorical values as 0,1,2,3 like this
+in a single column 
+OHE helps us to divide the categorical values into 0,1 
+here for geography why we used OHE is because
+If we apply LE then it will mark all countries as number which might be a disaster for us
+because we are working on NN which completely relies in numbers/values
+
+then after OHE then i added all these columns into our main dataset
+
+then performed train and test split
+
+transformed the data using Standardscaler method to make and fit all values into similar axis
+
+we saved OHE,LE,Scaler methods outputs as pickle files
+A pickle file (.pkl) is a file where we store a Python object in binary format so we can reuse it later.
+
+antey manam ippudu ee notebook ni close chesaam anuko 
+save chesina data motham erase ayiddhi
+pickle file em chesidhi antey okkasari save chesaam antey manam enni sarlu aina reuse cheyochu
+andukey pkl file ni save chetsaam
+
+
+
+
+Tensorflow gurinchi
+
+actual ga NN anedhi interconnected antey sequentially connected Network
+Hidden neurons kosam manam Dense ane oka method use chestaam which is present in keras
+aa tarvata hidden neuron is activation functions use chetsaam
+at the end we use optimizers which is main in back propagation to update weights
+we need to reduce loss function
+metrics findout cheyaali
+
+training related data motham logs lo save chetsaam
+daanini oka folder lo save chestaam to visualize them
+
+
+now manam NN ni build chestunnaam
+
+so 1st hidden layer lo manma 64 neurons tisukunnaam and activation function relu tisukunnam and also ikkada manam input size ni mention cheyaali
+antey ee NN algorithm lo ayina 1st hidden layer lo input size ni mention cheyaali
+2nd layer lo 32 neurons and activation function relu tisukunnam
+3rd layer is output layer here, output anedhi binary classification problem kabatti 1 ee tisukunnaam
+and sigmoid function ni tisukunnaam activation problem later
+
+
+model ni build chestunnaam
+
+manam already hidden, input layers and activation functions ni create chesukunnaam
+next step enti antey optimizers ni, loss functions ni, metrics ni define chesukovam ee
+usually optimizers lo best adam optimizer, manam initial ga oka learning rate ki kuda ivvochu daaniki
+loss anedhi manaki Crossentopyloss ee use chesidhi
+ikkada metrics anedhi accuracy tisukunnaam
+
+then each and every log ni save chesukunnaam
+aa tarvata early stopping ni use chesaam
+
+early stopping callback antey manam epochs ni use chestaam ga
+so adhi n number of times iterate ayiddhi
+manaki loss anedhi reduce ayyi inka continous ga same ee vastundhi anuko with minimal changes
+so ee early stopping callback anedhi loop iteration ni aapesiddhi
+
+
+
+
+
+
+ippudu prediction cheyaali
+
+
+daani kosam prediction ki inko seperate ipynb file create chesukuntey better
+manam create chesina pickle files ni load chesukundhaam ikkada using pickle.load() method
+
+
+load chesukunnaaka manam oka kotha input ni tisukoni test chesukundhaam
+
+so mana input motham kotha data kabatti mana input lo categorical values vundochu 
+malli vaatini based on mana previous test file lo elaa aithey OHE or LE or scaling chesaamo same alaane cheyaali
+
+so ala convert chesi motham vunna input data lo ki append chesukoni using concat()
+daanini predict cheyaalipredict chesaaka vachina value ni based on greater than 0.5 or less 
+check chesukoni then we can say customer is exited or not ani 
+
+
+
