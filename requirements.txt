@@ -7,4 +7,4 @@ numpy==1.24.4
 pandas==2.0.3
 scikit-learn==1.2.2
 h5py==3.8.0
-protobuf<=3.20.3
+protobuf==3.20.3
